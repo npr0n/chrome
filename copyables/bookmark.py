@@ -7,6 +7,7 @@ out_literotica = "/output/literotica"
 
 # Log run start
 subprocess.run("echo 'Start : '$(date) > "+output+"/lastrun.txt", shell=True)
+subprocess.run("echo 'User: '$(whoami) > "+output+"/lastrun.txt", shell=True)
 
 for url in chrome_bookmarks.urls:
     # Luscious
