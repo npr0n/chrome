@@ -1,8 +1,12 @@
 import chrome_bookmarks
 import subprocess
 
+output = "/output"
 out_luscious = "/output/luscious"
 out_literotica = "/output/literotica"
+
+# Log run start
+subprocess.run("echo 'Start : '$(date) > "+output+"/lastrun.txt", shell=True)
 
 for url in chrome_bookmarks.urls:
     # Luscious
@@ -20,3 +24,6 @@ for url in chrome_bookmarks.urls:
     else:
         continue
     subprocess.run(cmd, shell=True)
+
+# Log run finish
+subprocess.run("echo 'Finish: '$(date) >> "+output+"/lastrun.txt", shell=True)
