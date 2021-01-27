@@ -7,9 +7,13 @@ PGID=${PGID:-911}
 groupmod -o -g "$PGID" chrome
 usermod -o -u "$PUID" chrome
 
+# redo permissions
 chown -R chrome:chrome /output
 chown -R chrome:chrome /home/chrome
 chown chrome /var/spool/cron/crontabs/chrome
+
+# start cron
+service cron start
 
 # VNC default no password
 export X11VNC_AUTH="-nopw"
