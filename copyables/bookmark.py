@@ -12,13 +12,13 @@ for url in chrome_bookmarks.urls:
         cmd = "lsd -a "+out_luscious+" -u "+url.url
     # Literotica
     elif "literotica.com/s/" in url.url:
-        cmd = "literotica_dl -o "+out_literotica+" -s "+url.url
+        cmd = "cd "+out_literotica+" && litero_getstory -u "+url.url
     elif "literotica.com/stories/memberpage.php?uid=" in url.url:
-        cmd = "literotica_dl -o "+out_literotica+" -a "+url.url
+        cmd = "cd "+out_literotica+" && litero_getstory -u "+url.url
     # Literotica beta rewrites url
     elif "literotica.com/beta/s/" in url.url:
         url = url.url.replace("beta/", "")
-        cmd = "literotica_dl -o "+out_literotica+" -s "+url
+        cmd = "cd "+out_literotica+" && litero_getstory -u "+url.url
     else:
         continue
     subprocess.run(cmd, shell=True)
