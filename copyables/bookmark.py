@@ -7,7 +7,7 @@ out_literotica = "/output/literotica"
 
 # Log run start
 subprocess.run("echo 'Start : '$(date) > "+output+"/lastrun.txt", shell=True)
-subprocess.run("echo 'User: '$(whoami) > "+output+"/lastrun.txt", shell=True)
+subprocess.run("echo 'User  : '$(whoami) >> "+output+"/lastrun.txt", shell=True)
 
 for url in chrome_bookmarks.urls:
     # Luscious
@@ -24,6 +24,7 @@ for url in chrome_bookmarks.urls:
         cmd = "cd "+out_literotica+" && litero_getstory -u "+url
     else:
         continue
+    subprocess.run("echo 'cmd   : "+cmd+"' >> "+output+"/lastrun.txt", shell=True)
     subprocess.run(cmd, shell=True)
 
 # Log run finish
