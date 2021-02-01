@@ -52,9 +52,9 @@ RUN apt-get clean \
     && python3 -m pip install chrome-bookmarks luscious-downloader \
     && npm install -g litero \
     && su chrome -c "echo \
-		'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\n\
-		*/15 * * * * python3 /bookmark.py' > ~/usercron;\
-        crontab ~/usercron; rm ~/usercron"
+		'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' \
+		> ~/usercron && echo '*/15 * * * * python3 /bookmark.py' \
+		>> ~/usercron; crontab ~/usercron; rm ~/usercron"
 
 VOLUME [ "/home/chrome" ]
 
