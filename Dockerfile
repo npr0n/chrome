@@ -53,8 +53,9 @@ RUN apt-get clean \
     && npm install -g litero \
     && su chrome -c "echo \
 		'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' \
-		> ~/usercron && echo '*/15 * * * * python3 /bookmark.py' \
-		>> ~/usercron; crontab ~/usercron; rm ~/usercron"
+		> ~/usercron && echo '*/15 * * * * python3 /bookmark.py' >> \
+		~/usercron && echo '@reboot python3 /bookmark.py' >> ~/usercron \
+		&& crontab ~/usercron && rm ~/usercron"
 
 VOLUME [ "/home/chrome" ]
 
