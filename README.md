@@ -34,7 +34,7 @@ To be done:
 Currently this Image uses:
 - `ubuntu:18.04` - Base image
 - [`siomiz/chrome`](https://hub.docker.com/r/siomiz/chrome/) - basic functionality, forked for slimming (TBD)
-- [`fuzzyfiend/literotica_dl`](https://github.com/fuzzyfiend/literotica_dl) - downloader for literotica
+- [`openone/litero`](https://github.com/openone/litero) - downloader for literotica
 - [`Lucas8x/luscious-downloader`](https://github.com/Lucas8x/luscious-downloader) - downloader for luscious
 
 
